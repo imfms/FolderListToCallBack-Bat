@@ -36,8 +36,11 @@ REM 参数校验
 	if not defined fLTCB_callBackName exit/b 2
 	REM 目标文件夹
 	set "fLTCB_descDir=%~3"
-	if not "%fLTCB_descDir:~-1%"=="\" set "fLTCB_descDir=%fLTCB_descDir%\"
-
+	if defined fLTCB_descDir if not "%fLTCB_descDir:~-1%"=="\" (
+			set "fLTCB_descDir=%fLTCB_descDir%\"
+		)
+	
+	
 REM # 单文件处理
 if not exist "%fLTCB_srcFile%\" (
 	REM 将转换路径设置为源文件路径下新文件夹内
