@@ -1,7 +1,7 @@
 @echo off
 setlocal ENABLEDELAYEDEXPANSION
 
-call:folderListToCallBack "d:\user\desktop\通用框架·质地" ":showNew" "d:\user\desktop\新建文件夹"
+call:folderListToCallBack "d:\user\desktop\QQ_SLK2WAV" ":showNew" "d:\user\desktop\新建文件夹 ()"
 echo=%errorlevel%
 
 pause
@@ -10,10 +10,10 @@ exit/b 0
 REM :-------------------------子程序区域-------------------------:
 goto end
 
-REM 显示新的
+REM 被回调子程序
 :showNew
 
-echo=srcFile:"%~1", fLTCB_descDir:"%~2"
+echo=%*
 
 exit/b 0
 
