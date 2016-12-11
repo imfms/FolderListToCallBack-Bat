@@ -65,12 +65,12 @@ set "fLTCB_descDir=%fLTCB_descDir%_new\"
 
 REM 目录遍历转换
 :folderListToCallBackFolder
-for /r "%fLTCB_srcFile%\" %%a in (*) do if exist "%%~a" (
+for /r "%fLTCB_srcFile%\" %%. in (*) do if exist "%%~." (
 	REM 将装换路径设置为原路径下新文件夹内,如果有子文件夹则拼合到新文件夹下
-	set "fLTCB_targetDir=%%~dpa"
+	set "fLTCB_targetDir=%%~dp."
 	set "fLTCB_targetDir=!fLTCB_targetDir:%fLTCB_baseDir%=!"
 	
-	call %fLTCB_callBackName% "%%~a" "%fLTCB_descDir%!fLTCB_targetDir!"
+	call %fLTCB_callBackName% "%%~." "%fLTCB_descDir%!fLTCB_targetDir!"
 )
 :folderListToCallBackEnd
 exit/b 0
